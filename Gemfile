@@ -77,3 +77,5 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'faker' 
+
+gem 'jquery-rails', '4.3.1'

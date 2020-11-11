@@ -28,5 +28,6 @@ RSpec.describe "ユーザー登録", type: :request do
                                          password: "password",
                                          password_confirmation: "pass" } }
     }.not_to change(User, :count)
+    expect(is_logged_in?).not_to be_truthy
   end
 end
