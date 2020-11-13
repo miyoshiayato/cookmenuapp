@@ -117,9 +117,8 @@ input {
   margin-left: 0;
  }
 
- // プロフィールページ
-
- .title-profile {
+// プロフィールページ
+.title-profile {
   padding-bottom: 10px;
   border-bottom: 1px solid #eaeaea;
 }
@@ -142,3 +141,15 @@ input {
 .account-edit {
   margin-top: 20px;
 }
+
+
+// ユーザー一覧ページ
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+ }
