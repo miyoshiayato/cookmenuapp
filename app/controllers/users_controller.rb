@@ -45,4 +45,12 @@ class UsersController < ApplicationController
     def user_params_update
       params.require(:user).permit(:name, :email, :introduction, :sex)
     end
+
+    def correct_user
+      @user = User.find(params[:id])
+      if !current_user?(@user)
+        flash[:danger] = "このページへはアクセスできません"
+        redirect_to(root_url)
+      end
+    end
   end
