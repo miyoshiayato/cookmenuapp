@@ -113,6 +113,7 @@ RSpec.describe "Users", type: :system do
     context "ページレイアウト" do
       before do
         login_for_system(user)
+        create_list(:dish, 10, user: user)
         visit user_path(user)
       end
  

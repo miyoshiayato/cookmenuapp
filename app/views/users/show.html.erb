@@ -2,6 +2,15 @@
 <div class="container">
   <h3 class="title-profile">プロフィール</h3>
   <div class="row">
+    <div class="col-md-9">
+      <% if @user.dishes.any? %>
+        <h3>料理 (<%= @user.dishes.count %>)</h3>
+        <ol class="dishes">
+          <%= render @dishes %>
+        </ol>
+        <%= will_paginate @dishes %>
+      <% end %>
+    </div>
     <div class="col-md-4">
       <div class="user-picture-box">
         <%= gravatar_for @user, size: 120, cl: "gravatar user-picture" %>
