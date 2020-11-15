@@ -88,6 +88,14 @@ RSpec.describe "Dishes", type: :system do
       click_link "編集"
     end
 
+    context "料理の削除処理", js: true do
+      it "削除成功のフラッシュが表示されること" do
+        click_on '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '料理が削除されました'
+      end
+    end
+
     context "ページレイアウト" do
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title('料理情報の編集')
