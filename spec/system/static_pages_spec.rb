@@ -23,6 +23,13 @@ RSpec.describe "StaticPages", type: :system do
         login_for_system(user)
       end
 
+      it "料理を削除後、削除成功のフラッシュが表示されること" do
+        visit root_path
+        click_on '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '料理が削除されました'
+      end
+
       it "料理のぺージネーションが表示されること" do
         login_for_system(user)
         create_list(:dish, 6, user: user)
