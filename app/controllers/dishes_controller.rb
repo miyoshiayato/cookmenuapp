@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:edit, :update] 
 
   def new
     @dish = Dish.new
@@ -32,11 +33,11 @@ class DishesController < ApplicationController
       render 'edit'
     end
   end
-end
 
-private
+  private
 
   def dish_params
     params.require(:dish).permit(:name, :discription, :portion, :tips,
                                  :reference, :required_time, :popularity, :cook_memo)
   end
+end
