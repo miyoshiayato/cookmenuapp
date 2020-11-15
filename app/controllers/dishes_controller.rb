@@ -40,4 +40,9 @@ class DishesController < ApplicationController
     params.require(:dish).permit(:name, :discription, :portion, :tips,
                                  :reference, :required_time, :popularity, :cook_memo)
   end
+
+  def correct_user
+    @dish = current_user.dishes.find_by(id: params[:id])
+    redirect_to root_url if @dish.nil?
+  end
 end
