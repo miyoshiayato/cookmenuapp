@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
 
   def index
   end
@@ -60,10 +60,25 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-private
+  def following
+    @title = "フォロー中"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "フォロワー"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  private
+
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                 :password_confirmation)
   end
 
   def user_params_update

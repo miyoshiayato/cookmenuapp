@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
+  let!(:other_user) { create(:user) }
 
   describe "ユーザー一覧ページ" do
     context "管理者ユーザーの場合" do
@@ -50,7 +51,7 @@ RSpec.describe "Users", type: :system do
         click_button "登録する"
         expect(page).to have_content "クックメニューへようこそ！"
       end
-   
+
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
         fill_in "ユーザー名", with: ""
         fill_in "メールアドレス", with: "user@example.com"
@@ -108,7 +109,6 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-
   describe "プロフィールページ" do
     context "ページレイアウト" do
       before do
@@ -116,15 +116,15 @@ RSpec.describe "Users", type: :system do
         create_list(:dish, 10, user: user)
         visit user_path(user)
       end
- 
+
       it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
- 
+
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
-  
+
       it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
@@ -133,6 +133,18 @@ RSpec.describe "Users", type: :system do
 
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+      end
+    end
+
+    context "ユーザーのフォロー/アンフォロー処理", js: true do
+      it "ユーザーのフォロー/アンフォローができること" do
+        login_for_system(user)
+        visit user_path(other_user)
+        expect(page).to have_button 'フォローする'
+        click_button 'フォローする'
+        expect(page).to have_button 'フォロー中'
+        click_button 'フォロー中'
+        expect(page).to have_button 'フォローする'
       end
     end
   end

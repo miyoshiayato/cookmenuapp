@@ -6,7 +6,7 @@ ruby '2.5.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -40,7 +40,6 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave',             '1.2.2'
 gem "mini_magick",             '>= 4.9.4'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -48,7 +47,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
-  gem "factory_bot_rails", "~> 4.10.0" 
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -58,7 +57,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'spring-commands-rspec' 
+  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -78,10 +77,10 @@ group :production do
   gem 'fog', '1.42'
 end
 
-gem 'devise' 
+gem 'devise'
 
 gem 'bootstrap-sass'
 
-gem 'faker' 
+gem 'faker'
 
 gem 'jquery-rails', '4.3.1'

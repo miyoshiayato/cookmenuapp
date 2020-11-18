@@ -14,7 +14,7 @@ class Dish < ApplicationRecord
             },
             allow_nil: true
   validate  :picture_size
-  
+
   private
 
     # アップロードされた画像のサイズを制限する
