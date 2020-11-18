@@ -22,7 +22,7 @@ end
                reference: "https://cookpad.com/recipe/2798655",
                required_time: 30,
                popularity: 5,
-               cook_memo: "初めて作った割にはうまくできた！"
+               cook_memo: "初めて作った割にはうまくできた！",
                user_id: 1)
 end
 
