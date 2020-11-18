@@ -48,6 +48,11 @@ class User < ApplicationRecord
     Dish.where("user_id = ?", id)
   end
 
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+
 
 
   private
