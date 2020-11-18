@@ -51,7 +51,7 @@ RSpec.describe "Users", type: :system do
         click_button "登録する"
         expect(page).to have_content "クックメニューへようこそ！"
       end
-   
+
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
         fill_in "ユーザー名", with: ""
         fill_in "メールアドレス", with: "user@example.com"
@@ -109,7 +109,6 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-
   describe "プロフィールページ" do
     context "ページレイアウト" do
       before do
@@ -117,15 +116,15 @@ RSpec.describe "Users", type: :system do
         create_list(:dish, 10, user: user)
         visit user_path(user)
       end
- 
+
       it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
- 
+
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
-  
+
       it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction

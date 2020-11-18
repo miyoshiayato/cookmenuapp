@@ -19,6 +19,7 @@ RSpec.describe "StaticPages", type: :system do
     context "料理フィード", js: true do
       let!(:user) { create(:user) }
       let!(:dish) { create(:dish, user: user) }
+
       before do
         login_for_system(user)
       end

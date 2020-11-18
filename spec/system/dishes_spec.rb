@@ -81,8 +81,8 @@ RSpec.describe "Dishes", type: :system do
         end
         page.driver.browser.switch_to.alert.accept
         expect(page).to have_content '料理が削除されました'
-        end
       end
+    end
 
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title("#{dish.name}")

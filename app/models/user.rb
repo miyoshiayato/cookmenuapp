@@ -75,10 +75,8 @@ class User < ApplicationRecord
     followers.include?(other_user)
   end
 
-
-
-
   private
+
     def downcase_email
       self.email = email.downcase
     end
