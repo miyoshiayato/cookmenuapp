@@ -81,7 +81,10 @@ class User < ApplicationRecord
     Favorite.create!(user_id: id, dish_id: dish.id)
   end
 
-  
+  # 料理をお気に入り解除する
+  def unfavorite(dish)
+    Favorite.find_by(user_id: id, dish_id: dish.id).destroy
+  end
 
   private
 
