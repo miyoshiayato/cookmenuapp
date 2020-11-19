@@ -86,6 +86,11 @@ class User < ApplicationRecord
     Favorite.find_by(user_id: id, dish_id: dish.id).destroy
   end
 
+  # 現在のユーザーがお気に入り登録してたらtrueを返す
+  def favorite?(dish)
+    !Favorite.find_by(user_id: id, dish_id: dish.id).nil?
+  end
+
   private
 
     def downcase_email
