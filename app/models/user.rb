@@ -76,6 +76,13 @@ class User < ApplicationRecord
     followers.include?(other_user)
   end
 
+  # 料理をお気に入りに登録する
+  def favorite(dish)
+    Favorite.create!(user_id: id, dish_id: dish.id)
+  end
+
+  
+
   private
 
     def downcase_email
