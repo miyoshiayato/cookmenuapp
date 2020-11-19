@@ -4,6 +4,7 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
   let!(:other_user) { create(:user) }
+  let!(:dish) { create(:dish, user: user) }
 
   describe "ユーザー一覧ページ" do
     context "管理者ユーザーの場合" do
