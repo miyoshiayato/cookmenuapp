@@ -17,6 +17,10 @@ class Dish < ApplicationRecord
             allow_nil: true
   validate  :picture_size
 
+  def feed_comment(dish_id)
+    Comment.where("dish_id = ?", dish_id)
+  end
+
   private
 
     # アップロードされた画像のサイズを制限する
