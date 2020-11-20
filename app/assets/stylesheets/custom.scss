@@ -274,7 +274,6 @@ h2.dish-name {
   }
 }
 
-
 .change-dish {
   display: inline-block;
 }
@@ -283,14 +282,32 @@ h2.dish-name {
   font-size: 15px;
 }
 
-
 .dish-picture img {
   max-width: 100%;
   height: auto;
   box-sizing: border-box;
 }
 
+.title-comment {
+  font-weight: bold;
+  font-size: 17px;
+}
 
+.comments {
+  list-style: none;
+  li {
+    font-size: 14px;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    .comment {
+      font-size: 16px;
+    }
+  }
+}
+
+.comment-create-at {
+  color: grey;
+}
 
 // フォロー、フォロワー数表示部
 .stats {
@@ -307,6 +324,7 @@ h2.dish-name {
 .like-btn-like {
   color: grey;
 }
+
 
 
 // お気に入り一覧
