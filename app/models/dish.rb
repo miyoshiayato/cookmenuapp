@@ -1,6 +1,7 @@
 class Dish < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -15,6 +16,10 @@ class Dish < ApplicationRecord
             },
             allow_nil: true
   validate  :picture_size
+
+  def feed_comment(dish_id)
+    Comment.where("dish_id = ?", dish_id)
+  end
 
   private
 
