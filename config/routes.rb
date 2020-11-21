@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'notifications/index'
   get 'sessions/new'
   get 'users/new'
   get 'users/show'
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   resources :dishes 
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :notifications, only: :index
   get    :login,     to: 'sessions#new'
   post   :login,     to: 'sessions#create'
   delete :logout,    to: 'sessions#destroy'
