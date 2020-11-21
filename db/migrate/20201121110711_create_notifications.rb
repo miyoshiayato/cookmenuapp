@@ -6,8 +6,8 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
       t.integer :variety
       t.text :content
       t.integer :from_user_id
-
       t.timestamps
     end
+    add_index :notifications, :user_id
   end
 end
