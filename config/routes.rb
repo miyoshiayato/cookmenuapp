@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get 'sessions/new'
   get 'users/new'
   get 'users/show'
