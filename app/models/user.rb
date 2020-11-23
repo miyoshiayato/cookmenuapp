@@ -98,6 +98,11 @@ class User < ApplicationRecord
     List.create!(user_id: dish.user_id, dish_id: dish.id, from_user_id: id)
   end
 
+  # 料理をリストから解除する
+  def unlist(list)
+    list.destroy
+  end
+
   private
 
     def downcase_email
