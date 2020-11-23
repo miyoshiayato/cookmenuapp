@@ -93,6 +93,11 @@ class User < ApplicationRecord
     !Favorite.find_by(user_id: id, dish_id: dish.id).nil?
   end
 
+  # 料理をリストに登録する
+  def list(dish)
+    List.create!(user_id: dish.user_id, dish_id: dish.id, from_user_id: id)
+  end
+
   private
 
     def downcase_email
