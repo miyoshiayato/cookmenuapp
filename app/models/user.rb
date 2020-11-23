@@ -103,6 +103,11 @@ class User < ApplicationRecord
     list.destroy
   end
 
+  # 現在のユーザーがリスト登録してたらtrueを返す
+  def list?(dish)
+    !List.find_by(dish_id: dish.id, from_user_id: id).nil?
+  end
+
   private
 
     def downcase_email
