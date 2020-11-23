@@ -15,5 +15,12 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    list = List.find(params[:list_id])
+    @dish = list.dish
+    list.destroy
+    respond_to do |format|
+      format.html { redirect_to request.referrer || root_url }
+      format.js
+    end
   end
 end
