@@ -27,8 +27,6 @@ RSpec.describe "コメント機能", type: :request do
       end
     end
 
-    
-
     context "ログインしていない場合" do
       it "コメントは登録できず、ログインページへリダイレクトすること" do
         expect {
@@ -55,8 +53,8 @@ RSpec.describe "コメント機能", type: :request do
         it "コメントの削除はできないこと" do
           login_for_request(other_user)
             expect {
-        　    delete comment_path(comment)
-           }.not_to change(dish.comments, :count)
+        　 delete comment_path(comment)
+            }.not_to change(dish.comments, :count)
         end
       end
     end
