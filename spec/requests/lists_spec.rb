@@ -5,7 +5,6 @@ RSpec.describe "リスト登録機能", type: :request do
   let(:other_user) { create(:user) }
   let(:dish) { create(:dish, user: other_user) }
 
-
   context "リスト一覧ページの表示" do
     context "ログインしている場合" do
       it "レスポンスが正常に表示されること" do

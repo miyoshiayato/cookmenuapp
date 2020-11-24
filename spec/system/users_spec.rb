@@ -204,6 +204,7 @@ RSpec.describe "Users", type: :system do
         end
       end
     end
+
     context "ページレイアウト" do
       before do
         login_for_system(user)
@@ -296,7 +297,7 @@ RSpec.describe "Users", type: :system do
       before do
         login_for_system(user)
       end
-  
+
       it "料理のお気に入り登録/解除ができること" do
         expect(user.list?(dish)).to be_falsey
         user.list(dish)
@@ -304,7 +305,7 @@ RSpec.describe "Users", type: :system do
         user.unlist(List.first)
         expect(user.list?(dish)).to be_falsey
       end
-  
+
       it "トップページからリスト登録/解除ができること", js: true do
         visit root_path
         link = find('.list')
@@ -316,7 +317,7 @@ RSpec.describe "Users", type: :system do
         link = find('.list')
         expect(link[:href]).to include "/lists/#{dish.id}/create"
       end
-  
+
       it "ユーザー個別ページからリスト登録/解除ができること", js: true do
         visit user_path(user)
         link = find('.list')
@@ -328,7 +329,7 @@ RSpec.describe "Users", type: :system do
         link = find('.list')
         expect(link[:href]).to include "/lists/#{dish.id}/create"
       end
-  
+
       it "料理個別ページからリスト登録/解除ができること", js: true do
         link = find('.list')
         expect(link[:href]).to include "/lists/#{dish.id}/create"
@@ -339,7 +340,7 @@ RSpec.describe "Users", type: :system do
         link = find('.list')
         expect(link[:href]).to include "/lists/#{dish.id}/create"
       end
-  
+
       it "リスト一覧ページが期待通り表示され、リストから削除することもできること" do
         visit lists_path
         expect(page).not_to have_css ".list-dish"
