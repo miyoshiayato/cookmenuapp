@@ -3,4 +3,7 @@ class LogsController < ApplicationController
 
   def create
   end
+
+  def destroy
+  end
 end
