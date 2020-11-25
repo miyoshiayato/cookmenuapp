@@ -4,8 +4,12 @@ RSpec.describe "ログ機能", type: :request do
   let!(:log) { create(:log, dish: dish) }
 
   context "ログ登録" do
+    context "ログインしている場合" do
+    end
   end
 
   context "ログ削除" do
+    context "ログインしている場合" do
+    end
   end
 end
