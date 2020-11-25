@@ -24,6 +24,7 @@ end
                popularity: 5,
                cook_memo: "初めて作った割にはうまくできた！",
                user_id: 1)
+  dish = Dish.first
 end
 
 users = User.all
