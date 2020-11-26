@@ -1,5 +1,5 @@
 # アプリケーションの概要
-作った料理を記録して共有できる、料理投稿SNSサービス。
+作った料理を記録して共有できる、料理投稿SNSサービス。<https://cookmenu-v1.herokuapp.com/>
 
 # 技術的ポイント
 ・**RSpec**でModel, Request, Systemテスト記述  
