@@ -62,6 +62,13 @@ RSpec.describe "ログ機能", type: :request do
       end
 
       context "ログを作成したユーザーでない場合" do
+        it "ログ削除はできず、料理詳細ページへリダイレクトすること" do
+          login_for_request(other_user)
+          expect {
+            delete log_path(log)
+          }.not_to change(dish.logs, :count)
+        end
+      end
     end
 
     context "ログインしていない場合" do
