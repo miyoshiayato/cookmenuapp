@@ -149,6 +149,12 @@ RSpec.describe "Dishes", type: :system do
       end
 
       context "プロフィールページから" do
+        it "自分の料理に対するログ登録が正常に完了すること" do
+          login_for_system(user)
+          visit user_path(user)
+          fill_in "log_content", with: "ログ投稿テスト"
+          click_button "追加"
+        end
     end
   end
 
