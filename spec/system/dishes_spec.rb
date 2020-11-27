@@ -167,6 +167,8 @@ RSpec.describe "Dishes", type: :system do
           expect(page).to have_content dish.name
           fill_in "log_content", with: "ログ投稿テスト"
           click_button "追加"
+          expect(Log.first.content).to eq 'ログ投稿テスト'
+          expect(page).to have_content "クックログを追加しました！"
         end
     end
   end
