@@ -1,5 +1,6 @@
 RSpec.describe "ログ機能", type: :request do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:dish) { create(:dish, user: user) }
   let!(:log) { create(:log, dish: dish) }
 
