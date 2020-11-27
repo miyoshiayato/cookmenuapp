@@ -34,6 +34,7 @@ RSpec.describe "ログ機能", type: :request do
             post logs_path, params: { dish_id: dish.id,
                                       log: { content: "良い味付けで作れた" } }
           }.not_to change(dish.logs, :count)
+          expect(response).to redirect_to root_path
         end
       end
     end
