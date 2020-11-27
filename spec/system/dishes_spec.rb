@@ -109,6 +109,10 @@ RSpec.describe "Dishes", type: :system do
           fill_in "log_content", with: "ログ投稿テスト"
           click_button "ログ追加"
           within find("#log-#{Log.first.id}") do
+            expect(page).to have_selector 'span', text: "#{dish.logs.count}回目"
+            expect(page).to have_selector 'span',
+                                          text: %Q(#{Log.last.created_at.strftime("%Y/%m/%d(%a)")})
+            expect(page).to have_selector 'span', text: 'ログ投稿テスト'
           end
         end
   end
