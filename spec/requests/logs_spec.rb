@@ -28,6 +28,14 @@ RSpec.describe "ログ機能", type: :request do
       end
 
       context "料理を作成したユーザーでない場合" do
+        it "ログ登録できず、トップページへリダイレクトすること" do
+          login_for_request(other_user)
+          expect {
+            post logs_path, params: { dish_id: dish.id,
+                                      log: { content: "良い味付けで作れた" } }
+          }.not_to change(dish.logs, :count)
+        end
+      end
     end
 
     context "ログインしていない場合" do
