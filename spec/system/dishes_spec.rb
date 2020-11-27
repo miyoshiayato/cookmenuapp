@@ -136,6 +136,13 @@ RSpec.describe "Dishes", type: :system do
           expect(Log.first.content).to eq 'ログ投稿テスト'
           expect(page).to have_content "クックログを追加しました！"
         end
+
+        it "別ユーザーの料理にはログ登録フォームがないこと" do
+          create(:dish, user: other_user)
+          login_for_system(user)
+          user.follow(other_user)
+          visit root_path
+        end
     end
   end
 
