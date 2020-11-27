@@ -61,7 +61,7 @@ RSpec.describe "ログ機能", type: :request do
         end
       end
 
-      
+      context "ログを作成したユーザーでない場合" do
     end
 
     context "ログインしていない場合" do
