@@ -23,7 +23,7 @@ RSpec.describe "ログ機能", type: :request do
           expect {
             post logs_path, params: { dish_id: nil,
                                       log: { content: "良い味付けで作れた" } }
-          }
+          }.not_to change(dish.logs, :count)
         end
     end
 
