@@ -100,6 +100,8 @@ RSpec.describe "Dishes", type: :system do
         expect(page).to have_content '料理が削除されました'
       end
     end
+
+    context "ログ登録＆削除" do
   end
 
   describe "料理編集ページ" do
