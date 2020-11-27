@@ -114,6 +114,10 @@ RSpec.describe "Dishes", type: :system do
                                           text: %Q(#{Log.last.created_at.strftime("%Y/%m/%d(%a)")})
             expect(page).to have_selector 'span', text: 'ログ投稿テスト'
           end
+          expect(page).to have_content "クックログを追加しました！"
+          click_link "削除", href: log_path(Log.first)
+          expect(page).not_to have_selector 'span', text: 'ログ投稿テスト'
+          expect(page).to have_content "クックログを削除しました"
         end
   end
 
