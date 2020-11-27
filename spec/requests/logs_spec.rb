@@ -53,6 +53,13 @@ RSpec.describe "ログ機能", type: :request do
   context "ログ削除" do
     context "ログインしている場合" do
       context "ログを作成したユーザーである場合" do
+        it "ログ削除ができること" do
+          login_for_request(user)
+          expect {
+            delete log_path(log)
+          }
+        end
+      end
     end
 
     context "ログインしていない場合" do
