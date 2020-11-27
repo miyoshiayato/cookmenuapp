@@ -57,9 +57,11 @@ RSpec.describe "ログ機能", type: :request do
           login_for_request(user)
           expect {
             delete log_path(log)
-          }
+          }.to change(dish.logs, :count).by(-1)
         end
       end
+
+      
     end
 
     context "ログインしていない場合" do
