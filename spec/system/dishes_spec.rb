@@ -123,6 +123,7 @@ RSpec.describe "Dishes", type: :system do
         it "別ユーザーの料理ログにはログ登録フォームが無いこと" do
           login_for_system(other_user)
           visit dish_path(dish)
+          expect(page).not_to have_button "作る"
         end
   end
 
