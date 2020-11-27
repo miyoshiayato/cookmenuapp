@@ -21,5 +21,6 @@ class LogsController < ApplicationController
   end
 
   def correct_user
+    dish = current_user.dishes.find_by(id: params[:dish_id])
   end
 end
