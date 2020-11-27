@@ -14,6 +14,8 @@
   <span class="popularity">人気度：<%= dish.popularity %></span><br>
   <span class="reference"><%= link_to "作り方", dish.reference, target: :_blank %></span>
   <% if current_user == dish.user %>
+    <%= render "logs/new_form_mini" %>
+  <% end %>
   <span class="timestamp">
     <%= time_ago_in_words(dish.created_at) %>前に投稿
   </span>
