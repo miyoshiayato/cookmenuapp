@@ -10,6 +10,14 @@ RSpec.describe "ログ機能", type: :request do
         before do
           login_for_request(user)
         end
+
+        it "有効なログが登録できること" do
+          expect {
+            post logs_path, params: { dish_id: dish.id,
+                                      log: { content: "良い味付けで作れた" } }
+          }.to change(dish.logs, :count).by(1)
+          expect(response).to redirect_to dish_path(dish)
+        end
     end
 
     context "ログインしていない場合" do
