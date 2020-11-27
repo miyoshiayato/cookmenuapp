@@ -18,6 +18,13 @@ RSpec.describe "ログ機能", type: :request do
           }.to change(dish.logs, :count).by(1)
           expect(response).to redirect_to dish_path(dish)
         end
+
+        it "無効なログが登録できないこと" do
+          expect {
+            post logs_path, params: { dish_id: nil,
+                                      log: { content: "良い味付けで作れた" } }
+          }
+        end
     end
 
     context "ログインしていない場合" do
