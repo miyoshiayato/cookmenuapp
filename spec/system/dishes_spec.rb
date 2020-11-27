@@ -157,6 +157,9 @@ RSpec.describe "Dishes", type: :system do
           expect(Log.first.content).to eq 'ログ投稿テスト'
           expect(page).to have_content "クックログを追加しました！"
         end
+      end
+
+      context "リスト一覧ページから" do
     end
   end
 
