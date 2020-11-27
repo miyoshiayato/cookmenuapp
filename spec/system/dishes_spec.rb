@@ -125,6 +125,10 @@ RSpec.describe "Dishes", type: :system do
           visit dish_path(dish)
           expect(page).not_to have_button "作る"
         end
+      end
+
+      context "トップページから" do
+    end
   end
 
   describe "料理編集ページ" do
