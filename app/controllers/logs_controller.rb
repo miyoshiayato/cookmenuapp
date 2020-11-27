@@ -19,4 +19,7 @@ class LogsController < ApplicationController
     end
     redirect_to dish_url(@dish)
   end
+
+  def correct_user
+  end
 end
