@@ -146,6 +146,9 @@ RSpec.describe "Dishes", type: :system do
             expect(page).not_to have_button "作る"
           end
         end
+      end
+
+      context "プロフィールページから" do
     end
   end
 
