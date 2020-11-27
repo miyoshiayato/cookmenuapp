@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Dishes", type: :system do
   let!(:user) { create(:user) }
   let!(:dish) { create(:dish, :picture, user: user) }
+  let!(:log) { create(:log, dish: dish) }
 
   describe "料理登録ページ" do
     before do
