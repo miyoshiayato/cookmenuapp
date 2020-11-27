@@ -119,6 +119,11 @@ RSpec.describe "Dishes", type: :system do
           expect(page).not_to have_selector 'span', text: 'ログ投稿テスト'
           expect(page).to have_content "クックログを削除しました"
         end
+
+        it "別ユーザーの料理ログにはログ登録フォームが無いこと" do
+          login_for_system(other_user)
+          visit dish_path(dish)
+        end
   end
 
   describe "料理編集ページ" do
