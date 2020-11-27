@@ -102,6 +102,7 @@ RSpec.describe "Dishes", type: :system do
     end
 
     context "ログ登録＆削除" do
+      context "料理詳細ページから" do
   end
 
   describe "料理編集ページ" do
