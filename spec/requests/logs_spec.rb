@@ -67,6 +67,7 @@ RSpec.describe "ログ機能", type: :request do
           expect {
             delete log_path(log)
           }.not_to change(dish.logs, :count)
+          expect(response).to redirect_to dish_path(dish)
         end
       end
     end
