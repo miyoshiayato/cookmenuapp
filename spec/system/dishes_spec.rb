@@ -171,6 +171,7 @@ RSpec.describe "Dishes", type: :system do
           expect(page).to have_content "クックログを追加しました！"
           expect(List.count).to eq 0
         end
+      end
     end
   end
 
