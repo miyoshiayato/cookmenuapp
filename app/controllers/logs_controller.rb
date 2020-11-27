@@ -22,5 +22,6 @@ class LogsController < ApplicationController
 
   def correct_user
     dish = current_user.dishes.find_by(id: params[:dish_id])
+    redirect_to root_url if dish.nil?
   end
 end
