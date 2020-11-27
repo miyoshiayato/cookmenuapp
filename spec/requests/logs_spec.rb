@@ -25,6 +25,9 @@ RSpec.describe "ログ機能", type: :request do
                                       log: { content: "良い味付けで作れた" } }
           }.not_to change(dish.logs, :count)
         end
+      end
+
+      context "料理を作成したユーザーでない場合" do
     end
 
     context "ログインしていない場合" do
