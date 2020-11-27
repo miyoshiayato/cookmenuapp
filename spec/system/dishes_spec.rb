@@ -103,6 +103,14 @@ RSpec.describe "Dishes", type: :system do
 
     context "ログ登録＆削除" do
       context "料理詳細ページから" do
+        it "自分の料理に対するログ登録＆削除が正常に完了すること" do
+          login_for_system(user)
+          visit dish_path(dish)
+          fill_in "log_content", with: "ログ投稿テスト"
+          click_button "ログ追加"
+          within find("#log-#{Log.first.id}") do
+          end
+        end
   end
 
   describe "料理編集ページ" do
