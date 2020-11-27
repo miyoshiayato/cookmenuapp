@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: :create
 
   def create
     @dish = Dish.find(params[:dish_id])
