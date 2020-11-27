@@ -142,6 +142,9 @@ RSpec.describe "Dishes", type: :system do
           login_for_system(user)
           user.follow(other_user)
           visit root_path
+          within find("#dish-#{Dish.first.id}") do
+            expect(page).not_to have_button "作る"
+          end
         end
     end
   end
