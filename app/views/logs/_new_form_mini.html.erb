@@ -4,6 +4,9 @@
   <p class="add-cooklog"><i class="fas fa-utensils"></i> クックログを追加する</p>
   <div class="row">
     <div class="col-md-9">
+      <div class="field">
+        <%= f.text_area :content, placeholder: "クックメモ" %>
+      </div>
     </div>
   </div>
 <% end %>
