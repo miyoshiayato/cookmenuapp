@@ -6,6 +6,7 @@ RSpec.describe "ログ機能", type: :request do
 
   context "ログ登録" do
     context "ログインしている場合" do
+      context "料理を作成したユーザーである場合" do
     end
 
     context "ログインしていない場合" do
