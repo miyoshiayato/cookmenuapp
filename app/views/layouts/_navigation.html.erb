@@ -27,7 +27,12 @@
                 <%= link_to current_user do %>
                   <span class="fas fa-user-cog"></span>
                 <% end %>
-                
+                <ul class="dropdown">
+                  <li><%= link_to 'プロフィール', current_user %></li>
+                  <li><%= link_to 'ユーザー一覧', users_path %></li>
+                  <li><%= link_to 'クックメニューとは？', about_path %></li>
+                  <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+                </ul>
               </li>
             <% else %>
               
