@@ -5,6 +5,13 @@
   box-sizing:         border-box;
 }
 
+
+//// ヘッダー ////
+.menu-1 a:hover {
+  text-decoration: none;
+  text-decoration-width: 1px;
+}
+
 // 上下幅
 .fh5co-nav .top-menu {
   padding: 18px 0;
