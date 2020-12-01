@@ -6,13 +6,13 @@
 }
 
 #logo {
-  float: left;
-  margin-top: 10px;
-  margin-bottom: 10px;
   img {
-    width: 150px;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
   }
 }
+
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
