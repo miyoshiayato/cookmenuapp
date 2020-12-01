@@ -1,0 +1,1 @@
+var loc = location.href;
