@@ -11,7 +11,13 @@
           <%= @user.name %>
           <a href="http://gravatar.com/emails" target="_blank">プロフィール写真を変更</a>
         </div>
+        <p></p>
+        <div class = 'form-group'>
+          <%= f.label :name %>　<span class="input-need">※必須</span>
+          <%= f.text_field :name, class: 'form-control', id: 'user_name' %>
+        </div>
         
+        <% end %>
       </div>
     </div>
   </div>
