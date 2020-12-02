@@ -9,7 +9,16 @@
           <span><%= link_to "プロフィール", @user %></span>
           <span><b>料理</b><%= @user.dishes.count %><b>件</b></span>
         </section>
-        
+        <section class="stats">
+          <%= render 'shared/stats' %>
+          <% if @users.any? %>
+            <div class="user_avatars">
+              <% @users.each do |user| %>
+                <%= link_to gravatar_for(user, size: 30), user %>
+              <% end %>
+            </div>
+          <% end %>
+        </section>
       </aside>
       
     </div>
