@@ -1,3 +1,6 @@
+$main-magenta: #dd356e;
+$main-yellow: #fee856;
+
 // ミックスイン
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -41,7 +44,8 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
- #error_explanation {
+
+#error_explanation {
   color: red;
   ul {
     color: red;
@@ -63,11 +67,12 @@ input {
     margin-left: 20px;
     font-weight: normal;
   }
- }
-  #session_remember_me {
+}
+
+#session_remember_me {
   width: auto;
   margin-left: 0;
- }
+}
 
 // プロフィールページ
 .title-profile {
@@ -109,7 +114,7 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
- }
+}
 
 
 // 料理(Dish)
@@ -163,6 +168,9 @@ span.picture {
 // 「新しい料理を作る」ボタン
 .btn-record {
   margin-top: 3em;
+  color: black;
+  background-color: $main-yellow;
+  border-color: $main-yellow;
 }
 
 // 料理登録ページ //
