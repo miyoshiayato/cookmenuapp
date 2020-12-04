@@ -36,6 +36,10 @@
             <%= f.label :required_time %> [分]　<span class="input-unneed">※任意</span>
             <%= f.text_field :required_time, class: 'form-control', id: 'dish_required_time' %>
           </div>
+          <div class = 'form-group'>
+            <%= f.label :popularity %> [1~5]　<span class="input-unneed">※任意</span>
+            <%= f.text_field :popularity, class: 'form-control', id: 'dish_popularity' %>
+          </div>
           
         <% end %>
       </div>
