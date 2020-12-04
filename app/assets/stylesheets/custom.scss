@@ -173,6 +173,13 @@ span.picture {
   border-color: $main-yellow;
 }
 
+// 「CSV出力」ボタン
+.btn-csv {
+  color: black;
+  background-color: palegreen;
+  border-color: palegreen;
+}
+
 // 料理登録ページ //
 .input-need {
   color: red;
