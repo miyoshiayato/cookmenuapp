@@ -31,7 +31,11 @@
         <div class="dish-info">
           <h5>分量：</h5><h4><%= @dish.portion %></h4> <h5>人分</h5>
         </div>
-        
+        <div class="show-dish-other-info">
+          <div class="dish-info">
+            <h5>作った回数：</h5><h4><%= @dish.logs.count %></h4> <h5>回</h5>
+          </div>
+          
       </div>
     </div>
   </div>
