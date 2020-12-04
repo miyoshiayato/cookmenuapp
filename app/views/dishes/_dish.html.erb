@@ -21,8 +21,22 @@
           <% end %>
         </span>
       </div>
-      
-      
+      <% if current_user == dish.user %>
+        <%= render "logs/new_form_mini" %>
+      <% end %>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="dish-created-at">
+            <%= time_ago_in_words(dish.created_at) %>前に投稿
+          </div>
+        </div>
+        <% if current_user.admin? || (current_user == dish.user) %>
+          <div class="col-md-6">
+            <%= link_to "削除", dish_path(dish), method: :delete,
+                               data: { confirm: "本当に削除しますか？" } %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </li>
