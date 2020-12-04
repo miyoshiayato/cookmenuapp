@@ -10,7 +10,14 @@
         </span>
         <%= render 'users/favorite_form' %>
         <%= render 'users/list_form' %>
-      
+      </div>
+      <div class="col-md-8">
+        <h2 class="dish-name"><%= @dish.name %></h2>　　
+        <div class="change-dish">
+          <% if current_user == @dish.user %>
+            <%= link_to "編集", edit_dish_path(@dish), class: 'edit-dish' %>　
+          <% end %>
+          
         
       </div>
     </div>
