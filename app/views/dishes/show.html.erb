@@ -40,7 +40,14 @@
           </div>
           <div class="dish-info">
             <h5>人気度：</h5>
-            
+            <h4>
+              <% if @dish.popularity.present? %>
+                <%= "★" * @dish.popularity %><%= "☆" * (5 - @dish.popularity) %>
+              <% end %>
+            </h4>
+          </div>
+        </div>
+        
       </div>
     </div>
   </div>
