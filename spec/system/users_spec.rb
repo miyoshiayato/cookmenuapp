@@ -230,6 +230,10 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
       end
 
+      it "料理の件数が表示されていることを確認" do
+        expect(page).to have_content "料理 (#{user.dishes.count})"
+      end
+
       it "料理の情報が表示されていることを確認" do
         Dish.take(5).each do |dish|
           expect(page).to have_link dish.name
