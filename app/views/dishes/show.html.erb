@@ -22,6 +22,9 @@
                                           data: { confirm: "本当に削除しますか？" } %>
           <% end %>
         </div>
+        <h4><%= @dish.description %></h4>
+        <h4 class="dish-reference">作り方：<%= link_to "#{@dish.reference}", @dish.reference, target: "_blank" %></h4>
+        
         
       </div>
     </div>
