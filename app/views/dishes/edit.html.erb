@@ -32,6 +32,10 @@
             <%= f.label :reference %>　<span class="input-unneed">※任意</span>
             <%= f.text_field :reference, class: 'form-control', id: 'dish_reference' %>
           </div>
+          <div class = 'form-group'>
+            <%= f.label :required_time %> [分]　<span class="input-unneed">※任意</span>
+            <%= f.text_field :required_time, class: 'form-control', id: 'dish_required_time' %>
+          </div>
           
         <% end %>
       </div>
