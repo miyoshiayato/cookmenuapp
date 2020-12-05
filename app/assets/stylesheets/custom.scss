@@ -30,9 +30,16 @@ $main-yellow: #fee856;
 
 @media screen and (max-width: 768px) {
   #logo {
-    
+    img {
+      max-width: 400%;
+      height: auto;
+      box-sizing: border-box;
+    }
   }
 }
+
+
+
 
 // ロゴの上下位置調整
 .fh5co-nav #fh5co-logo {
