@@ -28,6 +28,7 @@ $main-yellow: #fee856;
   }
 }
 
+// スマホ用：ロゴを拡大
 @media screen and (max-width: 768px) {
   #logo {
     img {
