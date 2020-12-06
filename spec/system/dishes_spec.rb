@@ -212,6 +212,20 @@ RSpec.describe "Dishes", type: :system do
             create(:dish, name: '野菜炒め', user: user)
             create(:dish, name: '野菜カレー', user: other_user)
     
+            # 誰もフォローしない場合
+            fill_in 'q_name_cont', with: 'かに'
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "”かに”の検索結果：1件"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: 1
+            end
+            fill_in 'q_name_cont', with: '野菜'
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "”野菜”の検索結果：1件"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: 1
+            end
+    
             
           end
     
