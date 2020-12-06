@@ -172,6 +172,10 @@ RSpec.describe "Dishes", type: :system do
           expect(List.count).to eq 0
         end
       end
+
+      context "検索機能" do
+        
+      end
     end
   end
 
