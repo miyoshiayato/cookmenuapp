@@ -253,7 +253,10 @@ RSpec.describe "Dishes", type: :system do
         end
     
         context "ログインしていない場合" do
-          
+          it "検索窓が表示されないこと" do
+            visit root_path
+            expect(page).not_to have_css 'form#dish_search'
+          end
         end
       end
     end
