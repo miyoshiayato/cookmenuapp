@@ -12,6 +12,10 @@
                   <%= f.label 'メールアドレス' %>
                   <%= f.email_field :email, class: 'form-control', id: 'recruit_user_email', value: 'recruit@example.com' %>
                 </div>
+                <div class = 'form-group'>
+                  <%= f.label 'パスワード' %>
+                  <%= f.password_field :password, class: 'form-control', id: 'recruit_user_password', value: 'password' %>
+                </div>
                 
               <% end %>
               
