@@ -12,4 +12,7 @@ RSpec.describe "料理一覧ページ", type: :request do
       expect(response).to render_template('dishes/index')
     end
   end
+
+  context "ログインしていないユーザーの場合" do
+    
 end
