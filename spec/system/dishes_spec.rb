@@ -252,8 +252,9 @@ RSpec.describe "Dishes", type: :system do
           end
         end
     
-        
-        
+        context "ログインしていない場合" do
+          
+        end
       end
     end
   end
