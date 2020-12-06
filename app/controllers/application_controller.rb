@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_search 
+  before_action :set_search
   protect_from_forgery with: :exception
   include SessionsHelper
 
@@ -11,8 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   private
+
   # ログイン済みユーザーかどうか確認
   def logged_in_user
     unless logged_in?

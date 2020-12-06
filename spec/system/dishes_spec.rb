@@ -179,7 +179,7 @@ RSpec.describe "Dishes", type: :system do
             login_for_system(user)
             visit root_path
           end
-    
+
           it "ログイン後の各ページに検索窓が表示されていること" do
             expect(page).to have_css 'form#dish_search'
             visit about_path
@@ -205,13 +205,13 @@ RSpec.describe "Dishes", type: :system do
             visit edit_dish_path(dish)
             expect(page).to have_css 'form#dish_search'
           end
-    
+
           it "フィードの中から検索ワードに該当する結果が表示されること" do
             create(:dish, name: 'かに玉', user: user)
             create(:dish, name: 'かに鍋', user: other_user)
             create(:dish, name: '野菜炒め', user: user)
             create(:dish, name: '野菜カレー', user: other_user)
-    
+
             # 誰もフォローしない場合
             fill_in 'q_name_cont', with: 'かに'
             click_button '検索'
@@ -225,7 +225,7 @@ RSpec.describe "Dishes", type: :system do
             within find('.dishes') do
               expect(page).to have_css 'li', count: 1
             end
-    
+
             # other_userをフォローする場合
             user.follow(other_user)
             fill_in 'q_name_cont', with: 'かに'
@@ -241,7 +241,7 @@ RSpec.describe "Dishes", type: :system do
               expect(page).to have_css 'li', count: 2
             end
           end
-    
+
           it "検索ワードを入れずに検索ボタンを押した場合、料理一覧が表示されること" do
             fill_in 'q_name_cont', with: ''
             click_button '検索'
@@ -251,7 +251,7 @@ RSpec.describe "Dishes", type: :system do
             end
           end
         end
-    
+
         context "ログインしていない場合" do
           it "検索窓が表示されないこと" do
             visit root_path
