@@ -226,7 +226,20 @@ RSpec.describe "Dishes", type: :system do
               expect(page).to have_css 'li', count: 1
             end
     
-            
+            # other_userをフォローする場合
+            user.follow(other_user)
+            fill_in 'q_name_cont', with: 'かに'
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "”かに”の検索結果：2件"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: 2
+            end
+            fill_in 'q_name_cont', with: '野菜'
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "”野菜”の検索結果：2件"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: 2
+            end
           end
     
           
