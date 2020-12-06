@@ -11,6 +11,7 @@ ja:
       dish: 料理
       comment: コメント
       log: クックログ
+      ingredient: 材料
     attributes:
       user:
         id: ID
