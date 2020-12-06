@@ -7,6 +7,7 @@ class DishesController < ApplicationController
   end
 
   def index
+    @log = Log.new
   end
 
   def show
