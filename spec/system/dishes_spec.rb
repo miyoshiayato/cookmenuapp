@@ -242,7 +242,18 @@ RSpec.describe "Dishes", type: :system do
             end
           end
     
-          
+          it "検索ワードを入れずに検索ボタンを押した場合、料理一覧が表示されること" do
+            fill_in 'q_name_cont', with: ''
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "料理一覧"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: Dish.count
+            end
+          end
+        end
+    
+        
+        
       end
     end
   end
