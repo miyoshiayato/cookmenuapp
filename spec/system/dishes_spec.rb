@@ -174,7 +174,14 @@ RSpec.describe "Dishes", type: :system do
       end
 
       context "検索機能" do
-        
+        context "ログインしている場合" do
+          before do
+            login_for_system(user)
+            visit root_path
+          end
+        end
+    
+          
       end
     end
   end
