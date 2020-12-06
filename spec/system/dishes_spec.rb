@@ -179,9 +179,35 @@ RSpec.describe "Dishes", type: :system do
             login_for_system(user)
             visit root_path
           end
-        end
+    
+          it "ログイン後の各ページに検索窓が表示されていること" do
+            expect(page).to have_css 'form#dish_search'
+            visit about_path
+            expect(page).to have_css 'form#dish_search'
+            visit use_of_terms_path
+            expect(page).to have_css 'form#dish_search'
+            visit users_path
+            expect(page).to have_css 'form#dish_search'
+            visit user_path(user)
+            expect(page).to have_css 'form#dish_search'
+            visit edit_user_path(user)
+            expect(page).to have_css 'form#dish_search'
+            visit following_user_path(user)
+            expect(page).to have_css 'form#dish_search'
+            visit followers_user_path(user)
+            expect(page).to have_css 'form#dish_search'
+            visit dishes_path
+            expect(page).to have_css 'form#dish_search'
+            visit dish_path(dish)
+            expect(page).to have_css 'form#dish_search'
+            visit new_dish_path
+            expect(page).to have_css 'form#dish_search'
+            visit edit_dish_path(dish)
+            expect(page).to have_css 'form#dish_search'
+          end
     
           
+        end
       end
     end
   end
