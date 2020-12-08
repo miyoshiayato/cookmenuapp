@@ -16,6 +16,11 @@
     <%= f.label :portion %> [人分]　<span class="input-unneed">※任意</span>
     <%= f.text_field :portion, class: 'form-control', id: 'dish_portion' %>
   </div>
+  <%= f.fields_for :ingredients do |i| %>
+    <div class="row">
+      
+    </div>
+  <% end %>
   <div class = 'form-group'>
     <%= f.label :tips %>　<span class="input-unneed">※任意</span>
     <%= f.text_field :tips, size: "30x4", class: 'form-control', id: 'dish_tips' %>
