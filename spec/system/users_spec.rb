@@ -247,6 +247,16 @@ RSpec.describe "Users", type: :system do
           end
         end
       end
+
+      it "料理の情報が表示されていることを確認" do
+        Dish.take(5).each do |dish|
+          （省略）
+          dish.ingredients.each do |i|
+            expect(page).to have_content i.name
+            expect(page).to have_content i.quantity
+          end
+        end
+      end
     end
 
     context "ユーザーのフォロー/アンフォロー処理", js: true do
