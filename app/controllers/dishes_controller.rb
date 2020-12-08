@@ -4,6 +4,7 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
+    @dish.ingredients.build
   end
 
   def index
@@ -56,8 +57,9 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :discription, :portion, :tips,
-                                 :reference, :required_time, :popularity, :cook_memo, :picture)
+    params.require(:dish).permit(:name, :description, :portion, :tips,
+                                 :reference, :required_time, :popularity, :cook_memo, :picture,
+                                 ingredients_attributes: [:id, :name, :quantity])
   end
 
   def correct_user

@@ -4,6 +4,7 @@ RSpec.describe "Dishes", type: :system do
   let!(:user) { create(:user) }
   let!(:dish) { create(:dish, :picture, user: user) }
   let!(:log) { create(:log, dish: dish) }
+  let!(:dish) { create(:dish, :picture, :ingredients, user: user) }
 
   describe "料理登録ページ" do
     before do
@@ -29,6 +30,15 @@ RSpec.describe "Dishes", type: :system do
         expect(page).to have_content '所要時間 [分]'
         expect(page).to have_content '人気度 [1~5]'
         expect(page).to have_content 'クックメモ'
+        expect(page).to have_css 'label[for=dish_ingredients_attributes_0_name]',
+                               text: '材料（10種類まで登録可）', count: 1
+        expect(page).to have_css 'label[for=dish_ingredients_attributes_0_quantity]',
+                               text: '量', count: 1
+      end
+
+      it "材料入力部分が10行表示されること" do
+        expect(page).to have_css 'input.ingredient_name', count: 10
+        expect(page).to have_css 'input.ingredient_quantity', count: 10
       end
     end
 
@@ -41,6 +51,8 @@ RSpec.describe "Dishes", type: :system do
         fill_in "作り方参照用URL", with: "https://cookpad.com/recipe/2798655"
         fill_in "所要時間", with: 30
         fill_in "人気度", with: 5
+        fill_in "dish[ingredients_attributes][0][name]", with: "豆腐"
+        fill_in "dish[ingredients_attributes][0][quantity]", with: "2個"
         attach_file "dish[picture]", "#{Rails.root}/spec/fixtures/test_dish.jpg"
         click_button "登録する"
         expect(page).to have_content "料理が登録されました！"
@@ -290,6 +302,13 @@ RSpec.describe "Dishes", type: :system do
         expect(page).to have_content '作り方参照用URL'
         expect(page).to have_content '所要時間 [分]'
         expect(page).to have_content '人気度 [1~5]'
+        expect(page).to have_css 'p.title-ingredient-name', text: '材料（10種類まで登録可）', count: 1
+        expect(page).to have_css 'p.title-ingredient-quantity', text: '量', count: 1
+      end
+
+      it "材料入力部分が10行表示されること" do
+        expect(page).to have_css 'input.ingredient_name', count: 10
+        expect(page).to have_css 'input.ingredient_quantity', count: 10
       end
     end
 
@@ -302,6 +321,8 @@ RSpec.describe "Dishes", type: :system do
         fill_in "作り方参照用URL", with: "henshu-https://cookpad.com/recipe/2798655"
         fill_in "所要時間", with: 60
         fill_in "人気度", with: 1
+        fill_in "dish[ingredients_attributes][0][name]", with: "編集-豆腐"
+        fill_in "dish[ingredients_attributes][0][quantity]", with: "編集-2個"
         attach_file "dish[picture]", "#{Rails.root}/spec/fixtures/test_dish2.jpg"
         click_button "更新する"
         expect(page).to have_content "料理情報が更新されました！"
@@ -313,6 +334,8 @@ RSpec.describe "Dishes", type: :system do
         expect(dish.reload.required_time).to eq 60
         expect(dish.reload.popularity).to eq 1
         expect(dish.reload.picture.url).to include "test_dish2.jpg"
+        expect(dish.reload.ingredients.first.name).to eq "編集-豆腐"
+        expect(dish.reload.ingredients.first.quantity).to eq "編集-2個"
       end
 
       it "無効な更新" do
