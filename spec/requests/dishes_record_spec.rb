@@ -74,6 +74,10 @@ RSpec.describe "お料理登録", type: :request do
   end
 
   context "材料無しの料理登録" do
+    it "正常に完了すること" do
+      
+    end
+
     
   end
 end
