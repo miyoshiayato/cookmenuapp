@@ -4,6 +4,7 @@ RSpec.describe "Dishes", type: :system do
   let!(:user) { create(:user) }
   let!(:dish) { create(:dish, :picture, user: user) }
   let!(:log) { create(:log, dish: dish) }
+  let!(:dish) { create(:dish, :picture, :ingredients, user: user) }
 
   describe "料理登録ページ" do
     before do
