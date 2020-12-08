@@ -75,7 +75,9 @@ RSpec.describe "お料理登録", type: :request do
 
   context "材料無しの料理登録" do
     it "正常に完了すること" do
-      
+      expect {
+        post dishes_path, params: { dish: { name: "イカの塩焼き" } }
+      }.to change(Dish, :count).by(1)
     end
 
     
