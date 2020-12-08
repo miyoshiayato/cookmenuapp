@@ -18,6 +18,12 @@
   </div>
   <%= f.fields_for :ingredients do |i| %>
     <div class="row">
+      <div class="col-md-9">
+        <div class = 'form-group'>
+          <%= i.label :name %>　<span class="input-unneed">※任意</span>
+          <%= i.text_field :name, class: 'form-control ingredient_name' %>
+        </div>
+      </div>
       
     </div>
   <% end %>
