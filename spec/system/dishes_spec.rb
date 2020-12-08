@@ -31,7 +31,8 @@ RSpec.describe "Dishes", type: :system do
         expect(page).to have_content 'クックメモ'
         expect(page).to have_css 'label[for=dish_ingredients_attributes_0_name]',
                                text: '材料（10種類まで登録可）', count: 1
-        
+        expect(page).to have_css 'label[for=dish_ingredients_attributes_0_quantity]',
+                               text: '量', count: 1
       end
     end
 
