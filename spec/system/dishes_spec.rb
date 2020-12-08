@@ -51,6 +51,7 @@ RSpec.describe "Dishes", type: :system do
         fill_in "所要時間", with: 30
         fill_in "人気度", with: 5
         fill_in "dish[ingredients_attributes]", with: "豆腐"
+        fill_in "dish[ingredients_attributes]", with: "2個"
         attach_file "dish[picture]", "#{Rails.root}/spec/fixtures/test_dish.jpg"
         click_button "登録する"
         expect(page).to have_content "料理が登録されました！"
