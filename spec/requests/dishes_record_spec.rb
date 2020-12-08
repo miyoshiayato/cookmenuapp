@@ -53,7 +53,12 @@ RSpec.describe "お料理登録", type: :request do
     end
 
     it "材料のデータも同時に増えること" do
-      
+      expect {
+        post dishes_path, params: { dish: { name: "イカの塩焼き",
+                                            ingredients_attributes: [
+                                              name: "じゃがいも",
+                                              quantity: "2個"] } }
+      }.to change(Ingredient, :count).by(1)
     end
   end
 
