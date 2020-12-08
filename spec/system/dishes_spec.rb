@@ -303,6 +303,7 @@ RSpec.describe "Dishes", type: :system do
         expect(page).to have_content '所要時間 [分]'
         expect(page).to have_content '人気度 [1~5]'
         expect(page).to have_css 'p.title-ingredient-name', text: '材料（10種類まで登録可）', count: 1
+        expect(page).to have_css 'p.title-ingredient-quantity', text: '量', count: 1
       end
     end
 
