@@ -81,7 +81,9 @@ RSpec.describe "お料理登録", type: :request do
     end
 
     it "材料のデータは増えないこと" do
-      
+      expect {
+        post dishes_path, params: { dish: { name: "イカの塩焼き" } }
+      }.not_to change(Ingredient, :count)
     end
   end
 end
