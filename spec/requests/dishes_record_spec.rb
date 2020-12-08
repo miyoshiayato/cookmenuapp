@@ -46,8 +46,11 @@ RSpec.describe "お料理登録", type: :request do
                                             tips: "ピリッと辛めに味付けするのがオススメ",
                                             reference: "https://cookpad.com/recipe/2798655",
                                             required_time: 30,
-                                            popularity: 5
-                                            picture: picture } }
+                                            popularity: 5,
+                                            picture: picture,
+                                            ingredients_attributes: [
+                                                name: "じゃがいも",
+                                                quantity: "2個"] } }
       }.not_to change(Dish, :count)
       expect(response).to render_template('dishes/new')
     end
