@@ -5,6 +5,7 @@ RSpec.describe "お料理登録", type: :request do
   let!(:dish) { create(:dish, user: user) }
   let(:picture_path) { File.join(Rails.root, 'spec/fixtures/test_dish.jpg') }
   let(:picture) { Rack::Test::UploadedFile.new(picture_path) }
+  let!(:other_user) { create(:user) }
 
   context "ログインしているユーザーの場合" do
     before do
