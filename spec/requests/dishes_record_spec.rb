@@ -72,4 +72,8 @@ RSpec.describe "お料理登録", type: :request do
       expect(response).to redirect_to login_path
     end
   end
+
+  context "材料無しの料理登録" do
+    
+  end
 end
