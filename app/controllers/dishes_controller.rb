@@ -4,6 +4,7 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
+    @dish.ingredients.build
   end
 
   def index
