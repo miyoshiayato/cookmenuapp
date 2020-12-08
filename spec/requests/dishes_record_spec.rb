@@ -51,6 +51,10 @@ RSpec.describe "お料理登録", type: :request do
       }.not_to change(Dish, :count)
       expect(response).to render_template('dishes/new')
     end
+
+    it "材料のデータも同時に増えること" do
+      
+    end
   end
 
   context "ログインしていないユーザーの場合" do
