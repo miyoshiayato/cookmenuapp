@@ -36,8 +36,8 @@ RSpec.describe "Dishes", type: :system do
       end
 
       it "材料入力部分が10行表示されること" do
-        expect(page).to have_css 'ingredient_name', count: 10
-        expect(page).to have_css 'ingredient_quantity', count: 10
+        expect(page).to have_css 'input.ingredient_name', count: 10
+        expect(page).to have_css 'input.ingredient_quantity', count: 10
       end
     end
 
