@@ -24,7 +24,12 @@
           <%= i.text_field :name, class: 'form-control ingredient_name' %>
         </div>
       </div>
-      
+      <div class="col-md-3">
+        <div class = 'form-group'>
+          <%= i.label :quantity %>　<span class="input-unneed">※任意</span>
+          <%= i.text_field :quantity, class: 'form-control ingredient_quantity' %>
+        </div>
+      </div>
     </div>
   <% end %>
   <div class = 'form-group'>
