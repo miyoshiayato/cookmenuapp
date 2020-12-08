@@ -80,6 +80,8 @@ RSpec.describe "お料理登録", type: :request do
       }.to change(Dish, :count).by(1)
     end
 
-    
+    it "材料のデータは増えないこと" do
+      
+    end
   end
 end
