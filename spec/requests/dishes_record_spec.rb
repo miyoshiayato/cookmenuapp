@@ -33,6 +33,7 @@ RSpec.describe "お料理登録", type: :request do
                                                 name: "じゃがいも",
                                                 quantity: "2個"] } }
       }.to change(Dish, :count).by(1)
+      redirect_to Dish.first
       follow_redirect!
       expect(response).to render_template('dishes/show')
     end
