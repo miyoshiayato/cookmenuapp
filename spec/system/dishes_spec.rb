@@ -229,13 +229,13 @@ RSpec.describe "Dishes", type: :system do
             create(:dish, name: '野菜カレー', user: other_user)
 
             # 誰もフォローしない場合
-            fill_in 'q_name_cont', with: 'かに'
+            fill_in 'q_name_or_ingredients_name_cont', with: 'かに'
             click_button '検索'
             expect(page).to have_css 'h3', text: "”かに”の検索結果：1件"
             within find('.dishes') do
               expect(page).to have_css 'li', count: 1
             end
-            fill_in 'q_name_cont', with: '野菜'
+            fill_in 'q_name_or_ingredients_name_cont', with: '野菜'
             click_button '検索'
             expect(page).to have_css 'h3', text: "”野菜”の検索結果：1件"
             within find('.dishes') do
@@ -244,22 +244,31 @@ RSpec.describe "Dishes", type: :system do
 
             # other_userをフォローする場合
             user.follow(other_user)
-            fill_in 'q_name_cont', with: 'かに'
+            fill_in 'q_name_or_ingredients_name_cont', with: 'かに'
             click_button '検索'
             expect(page).to have_css 'h3', text: "”かに”の検索結果：2件"
             within find('.dishes') do
               expect(page).to have_css 'li', count: 2
             end
-            fill_in 'q_name_cont', with: '野菜'
+            fill_in 'q_name_or_ingredients_name_cont', with: '野菜'
             click_button '検索'
             expect(page).to have_css 'h3', text: "”野菜”の検索結果：2件"
             within find('.dishes') do
               expect(page).to have_css 'li', count: 2
             end
+
+            # 材料も含めて検索に引っかかること
+            create(:ingredient, name: 'かにの切り身', dish: Dish.first)
+            fill_in 'q_name_or_ingredients_name_cont', with: 'かに'
+            click_button '検索'
+            expect(page).to have_css 'h3', text: "”かに”の検索結果：3件"
+            within find('.dishes') do
+              expect(page).to have_css 'li', count: 3
+            end
           end
 
           it "検索ワードを入れずに検索ボタンを押した場合、料理一覧が表示されること" do
-            fill_in 'q_name_cont', with: ''
+            fill_in 'q_name_or_ingredients_name_cont', with: ''
             click_button '検索'
             expect(page).to have_css 'h3', text: "料理一覧"
             within find('.dishes') do
