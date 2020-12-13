@@ -555,5 +555,6 @@ table.ingredient tr:nth-child(odd) {
 // 使い方A、B
 ol.main-use {
   counter-reset:list;
+  list-style-type:none;
   
 }
