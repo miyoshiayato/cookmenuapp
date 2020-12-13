@@ -618,5 +618,7 @@ ol.main-use li:after {
   left: 0;
   width: 0;
   height: 0;
-  
+  border: none;
+  border-left: solid 15px transparent;
+  border-bottom: solid 15px #F6A38B ;
 }
