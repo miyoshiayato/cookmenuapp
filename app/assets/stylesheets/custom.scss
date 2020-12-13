@@ -614,5 +614,9 @@ ol.main-use li:after {
 .title-use:before {
   position: absolute;
   content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
   
 }
