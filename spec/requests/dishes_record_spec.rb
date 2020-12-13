@@ -12,7 +12,7 @@ RSpec.describe "お料理登録", type: :request do
       get new_dish_path
       login_for_request(user)
     end
- 
+
     context "フレンドリーフォワーディング" do
       it "レスポンスが正常に表示されること" do
         expect(response).to redirect_to new_dish_url
@@ -30,8 +30,9 @@ RSpec.describe "お料理登録", type: :request do
                                             popularity: 5,
                                             picture: picture,
                                             ingredients_attributes: [
-                                                name: "じゃがいも",
-                                                quantity: "2個"] } }
+                                              name: "じゃがいも",
+                                              quantity: "2個",
+                                            ] } }
       }.to change(Dish, :count).by(1)
       redirect_to Dish.first
       follow_redirect!
@@ -49,8 +50,9 @@ RSpec.describe "お料理登録", type: :request do
                                             popularity: 5,
                                             picture: picture,
                                             ingredients_attributes: [
-                                                name: "じゃがいも",
-                                                quantity: "2個"] } }
+                                              name: "じゃがいも",
+                                              quantity: "2個",
+                                            ] } }
       }.not_to change(Dish, :count)
       expect(response).to render_template('dishes/new')
     end
@@ -60,7 +62,8 @@ RSpec.describe "お料理登録", type: :request do
         post dishes_path, params: { dish: { name: "イカの塩焼き",
                                             ingredients_attributes: [
                                               name: "じゃがいも",
-                                              quantity: "2個"] } }
+                                              quantity: "2個",
+                                            ] } }
       }.to change(Ingredient, :count).by(1)
     end
   end
