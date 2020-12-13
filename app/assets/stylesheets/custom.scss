@@ -586,3 +586,9 @@ ol.main-use li:before {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+ol.main-use li.A:before {
+  content: "A";
+}
+ol.main-use li.B:before {
+  content: "B";
+}
