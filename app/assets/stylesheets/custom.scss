@@ -556,5 +556,7 @@ table.ingredient tr:nth-child(odd) {
 ol.main-use {
   counter-reset:list;
   list-style-type:none;
+  font: 14px/1.6 'arial narrow', sans-serif;
+  font-size: 18px;
   
 }
