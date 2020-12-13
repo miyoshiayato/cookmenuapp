@@ -603,5 +603,9 @@ ol.main-use li:after {
   border-bottom: 4px solid transparent;
   border-left: 7px solid #F6A38B ;
   top: 50%;
-  
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
