@@ -595,5 +595,13 @@ ol.main-use li.B:before {
 ol.main-use li:after {
   content:"";
   display: block;
+  position: absolute;
+  left: -10px;
+  height: 0;
+  width: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid #F6A38B ;
+  top: 50%;
   
 }
