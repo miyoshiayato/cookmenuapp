@@ -30,9 +30,13 @@
 ・ランキング機能  
 
 
-
 # 環境
-■フレームワーク  
-　Ruby on Rails  
-■データベース  
-　PostgreSQL  
+・Ruby 2.5.7  
+・Rails 5.2.3  
+・jQuery  
+・Ajax  
+・HTML  
+・CSS  
+・AWS  
+・PostgreSQL  
+
