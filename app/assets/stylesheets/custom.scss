@@ -655,3 +655,29 @@ ol.how-to-use li {
   line-height: 30px;
   border-bottom: dashed 1px #F6A38B ;
 }
+ol.how-to-use li:before {
+  counter-increment: list;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #F6A38B ;
+  top: 50%;
+  
+}
+ol.how-to-use li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 6px;
+  height: 0;
+  width: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid #fff ;
+  top: 50%;
+  
+}
