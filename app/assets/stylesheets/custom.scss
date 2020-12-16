@@ -666,7 +666,11 @@ ol.how-to-use li:before {
   border-radius: 50%;
   background: #F6A38B ;
   top: 50%;
-  
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 ol.how-to-use li:after {
   content: "";
@@ -679,5 +683,9 @@ ol.how-to-use li:after {
   border-bottom: 4px solid transparent;
   border-left: 5px solid #fff ;
   top: 50%;
-  
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
