@@ -640,3 +640,8 @@ ol.main-use li:after {
   font-weight: bold;
   margin-bottom: 30px;
 }
+ol.how-to-use {
+  counter-reset: list;
+  list-style-type: none;
+  font: 14px/1.6 'arial narrow', sans-serif;
+}
