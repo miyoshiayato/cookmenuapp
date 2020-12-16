@@ -610,6 +610,12 @@ ol.main-use li:after {
   transform: translateY(-50%);
 }
 
+// 中線
+.about-line {
+  border: dashed 1px #F6A38B ;
+  margin: 2em 0;
+}
+
 // 各種機能
 .title-use:before {
   position: absolute;
