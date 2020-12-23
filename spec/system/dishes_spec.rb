@@ -400,7 +400,12 @@ RSpec.describe "Dishes", type: :system do
           include("みんなの料理一覧_#{Time.current.strftime('%Y%m%d_%H%M')}.csv")
       end
 
-      
+      it "プロフィールページからCSV出力が行えること" do
+        visit user_path(user)
+        click_link 'みんなの料理をCSV出力'
+        expect(page.response_headers['Content-Disposition']).to \
+          include("みんなの料理一覧_#{Time.current.strftime('%Y%m%d_%H%M')}.csv")
+      end
     end
   end
 end
