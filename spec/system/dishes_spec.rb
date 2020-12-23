@@ -393,6 +393,13 @@ RSpec.describe "Dishes", type: :system do
         login_for_system(user)
       end
 
+      it "トップページからCSV出力が行えること" do
+        visit root_path
+        click_link 'みんなの料理をCSV出力'
+        expect(page.response_headers['Content-Disposition']).to \
+          include("みんなの料理一覧_#{Time.current.strftime('%Y%m%d_%H%M')}.csv")
+      end
+
       
     end
   end
