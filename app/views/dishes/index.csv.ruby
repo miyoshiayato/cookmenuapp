@@ -10,5 +10,20 @@ CSV.generate do |csv|
                          材料7の名前 材料7の分量 材料8の名前 材料8の分量\
                          材料9の名前 材料9の分量 材料10の名前 材料10の分量)
   csv << csv_column_labels
-  
+  # 各料理のカラム値を追加
+  current_user.feed.each do |dish|
+    # まず材料以外のカラムを追加
+    csv_column_values = [
+      dish.name,
+      dish.description,
+      dish.user.name,
+      dish.reference,
+      dish.tips,
+      dish.required_time,
+      dish.popularity,
+      dish.portion,
+      dish.created_at.strftime("%Y/%m/%d(%a)")
+    ]
+    
+  end
 end
