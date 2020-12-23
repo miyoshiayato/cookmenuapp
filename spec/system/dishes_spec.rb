@@ -386,4 +386,8 @@ RSpec.describe "Dishes", type: :system do
       end
     end
   end
+
+  describe "料理一覧ページ" do
+    
+  end
 end
