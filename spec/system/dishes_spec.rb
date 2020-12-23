@@ -388,6 +388,12 @@ RSpec.describe "Dishes", type: :system do
   end
 
   describe "料理一覧ページ" do
-    
+    context "CSV出力機能" do
+      before do
+        login_for_system(user)
+      end
+
+      
+    end
   end
 end
