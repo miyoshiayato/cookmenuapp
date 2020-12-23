@@ -39,6 +39,7 @@ CSV.generate do |csv|
       csv_column_values.push(dish.ingredients[i].name, dish.ingredients[i].quantity)
       i += 1
     end
-    
+    # 最終的なcsv_column_valuesをcsvのセルに追加
+    csv << csv_column_values
   end
 end
